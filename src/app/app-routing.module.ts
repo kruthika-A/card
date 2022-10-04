@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CollegeComponent } from './college/college.component';
 import { LoopcardComponent } from './loopcard/loopcard.component';
+import { OfficeComponent } from './office/office.component';
 import { RegisterComponent } from './register/register.component';
 import { SchoolComponent } from './school/school.component';
 import { SubmitComponent } from './submit/submit.component';
@@ -40,10 +41,14 @@ const routes: Routes = [
   component:CollegeComponent,
   },
   {
-    path:'submit',
-    component:SubmitComponent
-  }
-
+    path:'office',
+    component:OfficeComponent,
+  },
+  {
+    path:'',      //wildcard routing
+    redirectTo:'register',     
+    pathMatch:'full'
+  },
 
  
 

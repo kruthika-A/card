@@ -1,18 +1,44 @@
 <div>
-    Fill the All Details
-</div>
-<div>
-    <label for="">Job Type</label>
-    <input type="text">
-    <label for="">Company</label>
-    <input type="text">
-    <label for="">WorkPlace Type</label>
-    <input type="text">
-    <label for="">Job Location</label>
-    <input type="text">
-    <label for="">Employee Type</label>
-    <input type="text">
-    <button>
-        Save
-    </button>
-</div>
+    Form and Field Validation
+    </div>
+<div [formGroup]="user">
+    <div>
+        <label for="">Name</label>
+        <input type="text" formControlName="name">
+
+        <div *ngIf="office['name'].invalid && (office['name'].dirty||office['name'].touched)">
+            <div class="nameInput" *ngIf="office['name'].errors?.required">
+                name is required
+            </div>
+        </div>
+    </div>
+    <div>
+        <label for="">Email</label>
+        <input type="text" formControlName="email">
+        <div *ngIf="office['email'].invalid && (office['email'].dirty||office['email'].touched)">
+            <div class="nameInput" *ngIf="office['email'].errors?.required">
+                email is required
+            </div>
+            <span class="nameInput" *ngIf="office['email'].errors?.['pattern']">Invalid email address format</span>
+        </div>
+        <div>
+            <label for="">Mobile</label>
+            <input type="text" formControlName="mobile" type="number" 
+            onKeyPress="if(this.value.length==10) return false;">
+            <div *ngIf="office['mobile'].invalid && (office['mobile'].dirty||office['mobile'].touched)">
+                <div class="nameInput" *ngIf="office['mobile'].errors?.required">
+                    mobile is required
+                </div>
+            </div>
+                <label for="">message</label>
+                <input type="text" formControlName="message">
+                <div *ngIf="office['message'].invalid && (office['message'].dirty||office['message'].touched)">
+                    <div class="nameInput" *ngIf="office['message'].errors?.required">
+                        message is required
+                    </div>
+                </div>
+            <div>
+                <button (click)="save()">
+                    save
+                </button>
+            </div>

@@ -1,6 +1,6 @@
 <div>
-    Registration
-</div>
+    Form and Field Validation
+    </div>
 <div [formGroup]="user">
     <div>
         <label for="">Name</label>
@@ -19,26 +19,26 @@
             <div class="nameInput" *ngIf="register['email'].errors?.required">
                 email is required
             </div>
+            <span class="nameInput" *ngIf="register['email'].errors?.['pattern']">Invalid email address format</span>
         </div>
         <div>
             <label for="">Mobile</label>
-            <input type="text" formControlName="mobile">
+            <input type="text" formControlName="mobile" type="number" 
+            onKeyPress="if(this.value.length==10) return false;">
             <div *ngIf="register['mobile'].invalid && (register['mobile'].dirty||register['mobile'].touched)">
                 <div class="nameInput" *ngIf="register['mobile'].errors?.required">
                     mobile is required
                 </div>
             </div>
-                <label for="">Tel</label>
-                <input type="text" formControlName="Tel">
-                <div *ngIf="register['Tel'].invalid && (register['Tel'].dirty||register['Tel'].touched)">
-                    <div class="nameInput" *ngIf="register['Tel'].errors?.required">
-                        Tel is required
+                <label for="">message</label>
+                <input type="text" formControlName="message">
+                <div *ngIf="register['message'].invalid && (register['message'].dirty||register['message'].touched)">
+                    <div class="nameInput" *ngIf="register['message'].errors?.required">
+                        message is required
                     </div>
                 </div>
-            
             <div>
                 <button (click)="save()">
                     save
                 </button>
-            
             </div>

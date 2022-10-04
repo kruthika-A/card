@@ -8,29 +8,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./school.component.scss']
 })
 export class SchoolComponent implements OnInit {
-  user:any
-  
+  user: any
 
-  constructor( private router:Router) { }
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.user=new FormGroup({
-      name:new FormControl('',[Validators.required]),
-      email :new FormControl('',[Validators.required]),
-      mobile :new FormControl('',[Validators.required]),
-      Tel:new FormControl('',Validators.required)
-    }) 
+    this.user = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required,Validators.pattern(
+        '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,10}$'
+      ),]),
+
+      mobile: new FormControl('', [Validators.required],),
+      message: new FormControl('', Validators.required)
+    })
   }
 
-  get register(){
+  get school() {
     return this.user.controls
   }
 
 
 
-  save(){
-    console.log('ssssssssssssss',this.user.value);
-    this.router.navigate(['school']) 
+  save() {
+    if (this.user.invalid) {
+      this.user.markAllAsTouched();
+    } else {
+      console.log('ssssssssssssss', this.user.value);
+      this.router.navigate(['college'])
+    }
+
   }
 
 }

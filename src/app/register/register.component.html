@@ -1,0 +1,44 @@
+<div>
+    Registration
+</div>
+<div [formGroup]="user">
+    <div>
+        <label for="">Name</label>
+        <input type="text" formControlName="name">
+
+        <div *ngIf="register['name'].invalid && (register['name'].dirty||register['name'].touched)">
+            <div class="nameInput" *ngIf="register['name'].errors?.required">
+                name is required
+            </div>
+        </div>
+    </div>
+    <div>
+        <label for="">Email</label>
+        <input type="text" formControlName="email">
+        <div *ngIf="register['email'].invalid && (register['email'].dirty||register['email'].touched)">
+            <div class="nameInput" *ngIf="register['email'].errors?.required">
+                email is required
+            </div>
+        </div>
+        <div>
+            <label for="">Mobile</label>
+            <input type="text" formControlName="mobile">
+            <div *ngIf="register['mobile'].invalid && (register['mobile'].dirty||register['mobile'].touched)">
+                <div class="nameInput" *ngIf="register['mobile'].errors?.required">
+                    mobile is required
+                </div>
+            </div>
+                <label for="">Tel</label>
+                <input type="text" formControlName="Tel">
+                <div *ngIf="register['Tel'].invalid && (register['Tel'].dirty||register['Tel'].touched)">
+                    <div class="nameInput" *ngIf="register['Tel'].errors?.required">
+                        Tel is required
+                    </div>
+                </div>
+            
+            <div>
+                <button (click)="save()">
+                    save
+                </button>
+            
+            </div>

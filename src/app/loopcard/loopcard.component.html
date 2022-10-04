@@ -1,0 +1,25 @@
+<!-- 
+<div *ngFor="let detail of Details"   >
+    <p>{{detail.name}},{{detail.email}},{{detail.address}}</p>
+</div>   -->
+<div>
+    form
+</div>
+
+<div [formGroup]="user"  >
+    <label class="userName" for="">username</label>
+    <input type="text" formControlName="name">
+    <div *ngIf="form['name'].invalid && (form['name'].dirty||form['name'].touched)">
+      <div *ngIf="form['name'].errors?.required" >
+        name is required
+      </div>
+      <div>
+        email is required 
+      </div>
+    </div>
+    
+    <label for="">email</label>
+    <input type="text"   formControlName="email" >
+    <button [disabled]="user.invalid"  (click)="submit()" >submit</button>
+</div>
+<router-outlet></router-outlet>

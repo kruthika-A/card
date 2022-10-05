@@ -9,8 +9,6 @@ import { Router } from '@angular/router';
 })
 export class SchoolComponent implements OnInit {
   user: any
-
-
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -26,7 +24,7 @@ export class SchoolComponent implements OnInit {
   }
 
   get school() {
-    return this.user.controls
+    return this.user.controls  //this function is used for getting all the datas from form 
   }
 
 

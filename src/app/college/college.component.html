@@ -9,7 +9,7 @@
         <div *ngIf="college['name'].invalid && (college['name'].dirty||college['name'].touched)">
             <div class="nameInput" *ngIf="college['name'].errors?.required">
                 name is required
-            </div>
+            </div> 
         </div>
     </div>
     <div>
@@ -41,4 +41,7 @@
                 <button (click)="save()">
                     save
                 </button>
+                <!-- <app-loopcard></app-loopcard> -->
             </div>
+            
+

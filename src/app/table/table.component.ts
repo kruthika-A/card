@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfirmationService } from 'primeng/api';
 
 
 @Component({
@@ -10,7 +11,7 @@ export class TableComponent implements OnInit {
   cols:any ;
   products: any
 
-  constructor() { }
+  constructor(private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     this.cols = [
@@ -51,5 +52,21 @@ export class TableComponent implements OnInit {
     }
   ]
   }
-
+  confirm() {
+    this.confirmationService.confirm({
+        message: 'Are you sure that you want to perform this action?',
+        accept: () => {
+            //Actual logic to perform a confirmation
+        }
+    });
 }
+}
+
+
+
+
+
+
+
+
+

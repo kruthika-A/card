@@ -18,6 +18,8 @@ import { TableComponent } from './table/table.component';
 import {PaginatorModule} from 'primeng/paginator';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
+import { provideRoutes } from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations' 
 // import { ConfirmodelComponent } from './confirmodel/confirmodel.component';
 
 @NgModule({
@@ -31,6 +33,8 @@ import {ConfirmationService} from 'primeng/api';
     OfficeComponent,
     SubmitComponent,
     TableComponent,
+    
+    
     // ConfirmodelComponent
   ],
   imports: [
@@ -43,11 +47,17 @@ import {ConfirmationService} from 'primeng/api';
     ReactiveFormsModule,
     TableModule,
     ConfirmDialogModule,
+    BrowserAnimationsModule
+    // NoopAnimationsModule,
+    // BrowserAnimationsModule
+    
+    // ConfirmationService,
+    
     // ConfirmationService
     // FormBuilder
 
   ],
-  providers: [],
+  providers: [ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

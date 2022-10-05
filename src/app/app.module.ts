@@ -15,6 +15,10 @@ import { CollegeComponent } from './college/college.component';
 import { OfficeComponent } from './office/office.component';
 import { SubmitComponent } from './submit/submit.component';
 import { TableComponent } from './table/table.component';
+import {PaginatorModule} from 'primeng/paginator';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+// import { ConfirmodelComponent } from './confirmodel/confirmodel.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { TableComponent } from './table/table.component';
     CollegeComponent,
     OfficeComponent,
     SubmitComponent,
-    TableComponent
+    TableComponent,
+    // ConfirmodelComponent
   ],
   imports: [
     BrowserModule,
@@ -36,8 +41,9 @@ import { TableComponent } from './table/table.component';
     ButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    TableModule
-    
+    TableModule,
+    ConfirmDialogModule,
+    // ConfirmationService
     // FormBuilder
 
   ],
